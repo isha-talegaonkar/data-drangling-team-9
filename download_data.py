@@ -18,25 +18,25 @@ for url in lines:
 
 
 
-import netCDF4
-import csv
-import urllib.request
+# import netCDF4
+# import csv
+# import urllib.request
 
-with open('subset_M2I6NPANA_5.12.4_20230323_230605_.txt') as f:
-    urls = f.read().splitlines()
+# with open('subset_M2I6NPANA_5.12.4_20230323_230605_.txt') as f:
+#     urls = f.read().splitlines()
 
-for url in urls:
-    filename = url.split('/')[-1]
-    urllib.request.urlretrieve(url, filename)
+# for url in urls:
+#     filename = url.split('/')[-1]
+#     urllib.request.urlretrieve(url, filename)
 
-    with netCDF4.Dataset(filename) as data:
-        with open(f"{filename}.csv", "w", newline='') as csv_file:
-            writer = csv.writer(csv_file)
+#     with netCDF4.Dataset(filename) as data:
+#         with open(f"{filename}.csv", "w", newline='') as csv_file:
+#             writer = csv.writer(csv_file)
 
-            writer.writerow(data.variables.keys())
+#             writer.writerow(data.variables.keys())
 
-            for i in range(len(data.variables['time'])):
-                row = [data.variables[var][i] for var in data.variables.keys()]
-                writer.writerow(row)
+#             for i in range(len(data.variables['time'])):
+#                 row = [data.variables[var][i] for var in data.variables.keys()]
+#                 writer.writerow(row)
 
-    print(f"{filename} converted to CSV")
+#     print(f"{filename} converted to CSV")

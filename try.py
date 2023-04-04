@@ -23,5 +23,5 @@ import xarray as xr
 import pathlib
 
 
-DS = xr.open_dataset('data/MERRA2_400.inst6_3d_ana_Np.20200101.nc4', engine='netcdf4')
+DS = xr.open_dataset('MERRA2_400.inst6_3d_ana_Np.20201026.nc4', engine='netcdf4')
 DS.to_dataframe().to_csv("file_6_hourly.csv")
